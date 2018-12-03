@@ -4,7 +4,7 @@ This is the collective repository for custom Singularity receipes.
 The following containers are currently available:
 ## Available projects
 
-* [R3.5.1_Bioc3.8](R3.5.1_Bioc3.8/LICENSE) - bioconductor/release_core2 dependent container
+* [R3.5.1_Bioc3.8](R3.5.1_Bioc3.8/README.md) - bioconductor/release_core2 dependent container
 
 ### Prerequisites
 
