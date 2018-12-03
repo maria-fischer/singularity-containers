@@ -23,7 +23,7 @@ singularity run --bind /your/path/on/host/to/include IMAGENAME.simp
 
 ### Open a Bash shell on the container
 ```
-singularity run --bind /your/path/on/host/to/include IMAGENAME.simp bash
+singularity exec --bind /your/path/on/host/to/include IMAGENAME.simp bash
 ```
 
 ### Run RStudio server on the container (localhost port 8787, no password)
