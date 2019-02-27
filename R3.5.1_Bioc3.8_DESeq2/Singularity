@@ -1,0 +1,41 @@
+Bootstrap: docker
+From: bioconductor/release_core2:R3.5.1_Bioc3.8
+
+%help
+
+    R 3.5.1 with Bioconductor 3.8 and Rstudio
+
+    To start R in your console call
+    singularity run --bind /groups/ busslinger_bioc_DESeq2.simp
+
+    To start RStudio Server on localhost port 8787 call
+    singularity exec --bind /groups/ busslinger_bioc_DESeq2.simp rserver --www-address=127.0.0.1
+
+    To start Rstudio Server with password authentication call (caution: username is your local user ID NOT rstudio!)
+    PASSWORD='hereComesYourSuperSpecialPassword' singularity exec --bind /groups/ busslinger_bioc_DESeq2.simp rserver --auth-none=0  --auth-pam-helper-path=pam-helper --www-address=127.0.0.1
+
+    To get a bash call
+    singularity exec --bind /groups/ busslinger_bioc_DESeq2.simp bash
+
+%labels
+
+    Maintainer "Maria Fischer (maria.fischer@imp.ac.at)"
+    Version "Bioconductor 3.8, R 3.5.1, DESeq 3."
+
+%files
+
+    install.R /tmp
+
+%post
+
+    echo "creating directories ... "
+    mkdir -p /groups/
+
+    ls -l /tmp/install.R
+    echo "install R packages ..."
+    R -f /tmp/install.R
+
+%runscript
+
+    exec /usr/local/bin/R "$@"
+
